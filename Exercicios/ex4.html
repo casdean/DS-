@@ -1,0 +1,16 @@
+<script>
+
+    let amigos = [];
+    let continuar = 'sim';
+
+    while (continuar == 'sim') {
+        amigos.push(prompt('digite o nome do amigo:'));
+        continuar = prompt("Deseja colocar mais algum amigo? sim/não");
+    }
+
+    amigos.forEach(function(friends){
+        console.log('Meu amigo se chama',  friends)
+    })
+
+
+</script>

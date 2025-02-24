@@ -1,0 +1,21 @@
+<script>
+
+    let tarefas = [];
+    let continuar = 'sim';
+
+    while (continuar == 'sim') {
+        tarefas.push(prompt('Informe uma tarefa:'))
+        continuar = prompt('deseja colocar nova tarefa? sim/não') 
+    }
+
+    console.log('tarefas necessárias:')
+    tarefas.forEach(function(tarefinhas){
+        console.log(tarefinhas)
+    })
+   
+
+
+
+
+
+</script>
