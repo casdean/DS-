@@ -1,4 +1,26 @@
 <script>
 
-    
+    let Notas = [];
+    let limite = 5;
+    let contador = 1;
+    let total = 0;
+
+    while (contador <= limite) {
+        let nota = parseFloat(prompt('Digite sua nota ' + contador + '/' + limite + ':'));
+        Notas.push(nota);
+        contador++;    
+    };
+
+    Notas.forEach(function(num){
+        total = total + num
+    });
+
+    let media = total / limite;
+
+    if (media >= 7) {
+        console.log ('Você está aprovado com a média: ' + media)
+    }else{
+        console.log ('reprovado com média: ' + media) 
+    };
+      
 </script>

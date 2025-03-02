@@ -1,18 +1,18 @@
 <script>
 
-    let limite = 2;
+    let limite = 5;
     let contador = 1;
-    let numeros = []
+    let numeros = [];
     let total = 0;
     
     while (contador <= limite ) {
         numeros.push(parseFloat(prompt('Digite um numero ' + contador + '/' + limite + ': ')));
         contador++
-    }
+    };
 
     numeros.forEach(function(num) {
         total = total + num;
-    })
+    });
 
     console.log(total);
 
