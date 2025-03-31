@@ -1,0 +1,17 @@
+<script>
+
+    let valor_1 = Number(prompt('digite o valor'));
+    let operador = (prompt('digite a operação'));
+
+    alert (showResult());
+
+    function showResult(){
+        // ? é "se" e : é "senão"   um if de uma linha só
+        let resultado;
+        resultado = operador == '+' ? valor_1 + valor_1 : 'Operador inválido';
+        resultado = operador == '-' ? valor_1 - valor_1 : 'Operador inválido';
+        resultado = operador == '*' ? valor_1 * valor_1 : 'Operador inválido';
+        resultado = operador == '/' ? valor_1 / valor_1 : 'Operador inválido';
+    }
+
+</script>
