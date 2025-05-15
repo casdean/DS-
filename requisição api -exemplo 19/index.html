@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consulta Países</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-4 p-3">
+                <input type="text" id="input-search" placeholder="Digite o País">
+                <button class="btn btn-primary" onclick="search()">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row" id="countries-list">
+        </div>
+    </div>
+
+    <script>
+
+        function search(){
+            let input_search = document.querySelector('#input-search');
+            let countries_list = document.querySelector('#countries-list');
+
+            fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
+            .then(resp => resp.json())
+            .then(resp => {
+                resp.forEach(country => {
+                    console.log(country);
+
+                    let img = document.createElement('img');
+                    img.setAttribute('src', country.flags.svg);
+                    img.style.width = '100%';
+                    img.style.borderRadius = '8px';
+
+                    let subtitle = document.createElement('h6');
+                    subtitle.innerText = country.name.official;
+
+                    let borders = document.createElememt('p');
+                    borders.innerText = country.borders;
+
+                    let population = document.createElement('p');
+                    population.innerText = country.population; 
+
+                    let title = document.createElement('h2');
+                    title.innerText = country.name.common;
+
+                    let capital = document.createElement('strong');
+                    capital.innerText = country.capital;
+
+                    let col = document.createElement('div');
+                    col.classList.add("col-6");
+                    //classlist é para criar um css 
+
+                    col.appendChild(img);
+                    col.appendChild(title);
+                    col.appendChild(subtitle);
+                    col.appendChild(capital);
+                    col.appendChild(population);
+                    col.appendChild(borders);
+                    countries_list.appendChild(col);
+
+                });
+            })
+            .catch(erro =>{
+                console.log(erro);
+            })
+            .finally(() =>{
+                console.log('Requisição Finalizada!');
+            })
+        }
+
+
+    </script>
+
