@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        alert("bem vindo ao javascript");
+// number pode substituir parsefloat ou parseint
+let nota1 = parseFloat(prompt("insira a primeria nota:"));
+let nota2 = parseFloat(prompt("insira a segunda nota:"));
+let nota3 = parseFloat(prompt("insira a terceira nota:"));
+let media = (nota1 + nota2 + nota3)/3;
+
+alert ("Sua média é", media.toFixed(2));
+
+if(media>=6){
+    alert("aprovado")
+}else{
+    alert("reprovado")
+}
+
+    </script>
+</body>
+</html>

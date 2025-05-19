@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // desenvolva um sistema que irá receber um usuario e senha e verifique se o acesso está liberado para este usuario.obs:a senha deve ter 6 digitos minimos
+
+        var usuario = prompt("insira o nome de usuário:");
+        var senha = Number(prompt("insira a senha:"));
+
+    
+        if (usuario == 'garcez' && senha == 252525){
+            alert("você entrou");
+        }else{
+            alert("usuario ou senha incorretos, tente novamente");
+        }
+
+        console.log(senha.lenght(6))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<script>
+
+    let tomarBanho = 'sim';
+    usuario = 'ser humano';
+
+    irAoBanheiro();
+    tirarRoupa();
+    ligarChuveiro();
+    situacaoExtrema();
+
+
+    function irAoBanheiro(){
+        console.log('Vá ao banheiro');
+    };
+
+    function tirarRoupa(){
+        console.log('Tire suas roupas');
+    };
+
+    function ligarChuveiro(){
+        console.log('Ligue seu chuveiro e tome banho!');
+    };
+    
+    
+    
+    function egirlOuNão(usuario){
+        if (usuario == 'egirl') {
+            situacaoExtrema();
+
+        }
+
+        if(usuario == 'ser humano'){
+            irAoBanheiro();
+            tirarRoupa();
+            ligarChuveiro();
+
+        }  
+    }
+    
+    function situacaoExtrema(){
+        console.log('Vai tomar banho creca');
+    }
+
+
+</script>

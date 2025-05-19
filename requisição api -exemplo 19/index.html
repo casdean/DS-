@@ -25,26 +25,44 @@
 
     <script>
 
+        
         function search(){
             let input_search = document.querySelector('#input-search');
             let countries_list = document.querySelector('#countries-list');
+            
+            // se eu tirar as chaves no .then então terá return e outro .then
 
+            // fetch significa procurar
             fetch(`https://restcountries.com/v3.1/name/${input_search.value}`)
             .then(resp => resp.json())
             .then(resp => {
                 resp.forEach(country => {
                     console.log(country);
 
+                    let col = document.createElement('div');
+                    col.classList.add("col-6");
+                    //classlist é para criar um css 
+                    
                     let img = document.createElement('img');
                     img.setAttribute('src', country.flags.svg);
                     img.style.width = '100%';
                     img.style.borderRadius = '8px';
 
+                    let link =  document.createElement('a');
+                    link.setAttribute('href', country.maps.googleMaps);
+                    link.innerText = 'Mapa';
+
                     let subtitle = document.createElement('h6');
                     subtitle.innerText = country.name.official;
 
-                    let borders = document.createElememt('p');
-                    borders.innerText = country.borders;
+                    let region = document.createElement('p');
+                    region.innerText = country.region;
+                    
+                    let subregion = document.createElement('p');
+                    subregion.innerText = country.subregion;
+
+                    let border =  document.createElement('h6');
+                    border.innerText = country.borders;
 
                     let population = document.createElement('p');
                     population.innerText = country.population; 
@@ -55,20 +73,42 @@
                     let capital = document.createElement('strong');
                     capital.innerText = country.capital;
 
-                    let col = document.createElement('div');
-                    col.classList.add("col-6");
-                    //classlist é para criar um css 
+
+                    let independent = document.createElement('h6');
+                    if (country.independent) {
+                        independent.innerText = 'Independente';
+                    }
+                    else{
+                        independent.innerText = 'Não é independente';
+                    }
+
+                    let img2 = document.createElement('img');
+                    img2.setAttribute('src' , country.coatOfArms.svg);
+                    img2.style.width ='100%';
+                    img2.style.borderRadius = '5px'
+
+                    let timeszones =  document.createElement('h6');
+                    timeszones.innerText = country.timezones;
+
 
                     col.appendChild(img);
                     col.appendChild(title);
                     col.appendChild(subtitle);
                     col.appendChild(capital);
                     col.appendChild(population);
-                    col.appendChild(borders);
+                    col.appendChild(border);
+                    col.appendChild(link);
+                    col.appendChild(region);
+                    col.appendChild(subregion);
+                    col.appendChild(independent);
+                    col.appendChild(timeszones);
+                    col.appendChild(img2);
                     countries_list.appendChild(col);
 
                 });
             })
+
+            // serve para pegar um erro
             .catch(erro =>{
                 console.log(erro);
             })
@@ -79,4 +119,5 @@
 
 
     </script>
+
 

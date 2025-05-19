@@ -1,0 +1,61 @@
+<script>
+
+    let liquidificador = [];
+
+    addIngredientes('2 xícaras de Farinha');
+    addIngredientes('2 Ovos');
+    addIngredientes('1 xícara de Açúcar');
+    addIngredientes('1 colher de óleo');
+    addIngredientes('2 xícaras de leite');
+    addIngredientes('1 colher de fermento');
+    addIngredientes('Chocolate a gosto');
+
+    misturarIngredientes();
+
+    addAssadeira();
+
+    addForno();
+
+    aguardarQuaseUmaHora();
+
+    retirarBolo();
+
+    esperarEsfriar();
+
+    degustar();
+
+    function addIngredientes(ingrediente){
+        liquidificador.push(ingrediente);
+        console.log(`Foi adicionado: ${ingrediente}`);
+    }
+
+    function misturarIngredientes(){
+        console.log('os ingredientes foram misturados com sucesso');
+    }
+
+    function addAssadeira(){
+        console.log('ingredientes adicionados a assadeira com sucesso');
+    }
+
+    function addForno(){
+        console.log('Assadeira levada ao forno com sucesso!');
+    }
+
+    function aguardarQuaseUmaHora(){
+        console.log('A massa está assando...');
+    }
+
+    function retirarBolo(){
+        console.log('Bolo retirado do forno com sucesso!');
+    }
+
+    function esperarEsfriar(){
+        console.log('seu bolo está esfriando...');
+    }
+
+    function degustar(){
+        console.log('Não dá para você degustar, o bolo não existe otário');
+        console.log(liquidificador);
+    }
+
+</script>
