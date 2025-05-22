@@ -18,7 +18,7 @@
         let veiculos = [
             {
                 modelo: 'Uno',
-                ano_surgimento: 1983,
+                anoSurgimento: 1983,
                 combustivel: 'flex',
                 cor: 'laranja',
                 cilindradas: '200cc',
@@ -32,7 +32,7 @@
             },
             {
                 modelo: 'buggati',
-                ano_surgimento: 1909,
+                anoSurgimento: 1909,
                 combustivel: 'flex',
                 cor: 'cinza',
                 cilindradas: '500cc',
@@ -46,7 +46,7 @@
             },
             {
                 modelo: 'corola',
-                ano_surgimento: 1966,
+                anoSurgimento: 1966,
                 combustivel: 'flex',
                 cor: 'vermelho',
                 cilindradas: '300cc',
@@ -68,8 +68,8 @@
             modelo.style.textTransform = 'uppercase';
             modelo.innerText = veiculo.modelo;
 
-            let ano_surgimento = document.createElement('h2');
-            ano_surgimento.innerText = veiculo.ano_surgimento;
+            let anoSurgimento = document.createElement('h2');
+            anoSurgimento.innerText = veiculo.anoSurgimento;
 
             let combustivel = document.createElement('h2');
             combustivel.innerText = veiculo.combustivel;
@@ -83,13 +83,15 @@
                 card.appendChild(imagem)
             })
 
+
+
             let col = document.createElement('div');
             col.classList.add('col-4');
 
             card.appendChild(modelo);
             card.appendChild(combustivel);
             card.appendChild(foto);
-            card.appendChild(ano_surgimento);
+            card.appendChild(anoSurgimento);
             col.appendChild(card);
             concessionária.appendChild(col);
             
