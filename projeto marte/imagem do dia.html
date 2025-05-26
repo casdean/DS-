@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-4">
+                <button class="btn btn-primary" onclick="search()">Ver imagem do dia</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+
+
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+        .then(resp => resp.json())
+        .then(resp => {
+        resp.forEach(mars => {
+            console.log(mars);
+
+            let col = createElement('div')
+            col.classList.add('col');
+            col.style.backgroundColor = 'grey'
+            
+            let imagem = createElement('img');
+            imagem.setAttribute('src', `` );
+            imagem.style.width = '300px';
+            imagem.style.height = '400px';
+
+            let data = createElement('h2');
+            
+            let explanation = createElement('p');
+            explanation.style.fontFamily = 'sansBold';
+
+
+
+            col.appendChild(imagem);
+            col.appendChild(data);
+            col.appendChild(explanation);
+
+
+                
+            
+
+
+        });
+    })
+    
+    .catch(erro =>{
+        console.log(erro);
+    })
+
+    .finally(() =>{
+        console.log('Requisição Finalizada!');
+    })
+
+
+
+
+            
+    </script>
+
+</body>
+</html>

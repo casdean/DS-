@@ -22,16 +22,6 @@
         <div class="row" id="countries-list">
         </div>
     </div>
-    
-    <!-- <iframe 
-    src="https://www.google.com/maps?q=-15.79,-47.88&hl=pt-BR&z=6&output=embed" 
-    width="600" 
-    height="450" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-    </iframe> -->
 
     <script>
 
@@ -58,18 +48,11 @@
                     img.style.width = '100%';
                     img.style.borderRadius = '8px';
 
-                    // let link = document.createElement('a');
-                    // link.setAttribute('href', country.maps.googleMaps);
-                    // link.innerText = 'Mapa';
-
-                    let mapa = document.createElement('iframe');
-                    mapa.setAttribute('src',`https://www.google.com/maps?q=${input_search.}.88&hl=pt-BR&z=6&output=embed` );
-                    mapa.setAttribute(allowfullscreen="");
-                    mapa.setAttribute(loading="lazy");
-                    mapa.setAttribute(referrerpolicy="no-referrer-when-downgrade");
-                    mapa.style.width = '500px';
-                    mapa.style.height = '450px';
-                    mapa.style.border = '0';
+                    let iframe = document.createElement('iframe');
+                    iframe.setAttribute('src',`https://www.google.com/maps?q=${country.latlng}88&hl=pt-BR&z=6&output=embed` );
+                    iframe.style.width = '500px';
+                    iframe.style.height = '450px';
+                    iframe.style.border = '0';
 
 
                     let subtitle = document.createElement('h6');
@@ -100,7 +83,7 @@
                     }
                     else{
                         independent.innerText = 'Não é independente';
-                    }
+                    };
 
                     let img2 = document.createElement('img');
                     img2.setAttribute('src' , country.coatOfArms.svg);
@@ -117,8 +100,7 @@
                     col.appendChild(capital);
                     col.appendChild(population);
                     col.appendChild(border);
-                    // col.appendChild(link);
-                    col.appendChild(mapa);
+                    col.appendChild(iframe);
                     col.appendChild(region);
                     col.appendChild(subregion);
                     col.appendChild(independent);
