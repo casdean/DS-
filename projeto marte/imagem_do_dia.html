@@ -7,22 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    
 
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center">
-            <div class="col-4">
-                <button class="btn btn-primary" onclick="search()">Ver imagem do dia</button>
+        <div class="row">
+            <div class="col">
+                <h1>ola mundoo</h1>
             </div>
         </div>
     </div>
-
+    
+        
 
     <script>
 
 
 
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`)
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl`)
         .then(resp => resp.json())
         .then(resp => {
         resp.forEach(mars => {
@@ -41,7 +41,6 @@
             
             let explanation = createElement('p');
             explanation.style.fontFamily = 'sansBold';
-
 
 
             col.appendChild(imagem);
