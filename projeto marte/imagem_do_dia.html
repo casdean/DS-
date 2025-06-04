@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1>ola mundoo</h1>
+                
             </div>
         </div>
     </div>
@@ -26,20 +26,20 @@
         .then(resp => resp.json())
         .then(resp => {
         resp.forEach(mars => {
-            console.log(mars);
-
-            let col = createElement('div')
-            col.classList.add('col');
-            col.style.backgroundColor = 'grey'
             
-            let imagem = createElement('img');
-            imagem.setAttribute('src', `` );
+            console.log(mars);
+            let col = document.createElement('div')
+            col.classList.add('col');
+            col.style.backgroundColor = 'grey';
+            
+            let imagem = document.createElement('img');
+            imagem.setAttribute('src', `https://api.nasa.gov/planetary/apod?api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl` );
             imagem.style.width = '300px';
             imagem.style.height = '400px';
 
-            let data = createElement('h2');
+            let data = document.createElement('h2');
             
-            let explanation = createElement('p');
+            let explanation = document.createElement('p');
             explanation.style.fontFamily = 'sansBold';
 
 
@@ -63,7 +63,7 @@
         console.log('Requisição Finalizada!');
     })
 
-
+    
 
 
             
