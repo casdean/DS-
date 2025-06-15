@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="corpo">
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2025-06-08&end_date=2025-06-15&api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl`)
+        .then(resp => resp.json())
+        .then(data => { 
+         console.log(data);
+
+            let nearEarthObjects = data.near_earth_objects;
+            let corpo = document.querySelector('#corpo');
+
+            for (let date in nearEarthObjects) {
+                nearEarthObjects[date].forEach(asteroid => {
+
+            let col = document.createElement('div');
+            col.classList.add('col');
+            col.style.backgroundColor = 'grey';
+
+            let dia = document.createElement('h3');
+            dia.innerText = `Data: ${date} `;
+            dia.style.fontFamily = 'sansBold'; 
+
+            let name = document.createElement('h2');
+            name.innerText = asteroid.name;
+            name.style.fontFamily = 'sansBold';
+            
+            let magnitude = document.createElement('p');
+            magnitude.innerText = `Magnitude: ${asteroid.absolute_magnitude_h}`; 
+            magnitude.style.fontFamily = 'sansBold';
+
+            let maxDiameter = asteroid.estimated_diameter.meters.estimated_diameter_max;
+            let minDiameter = asteroid.estimated_diameter.meters.estimated_diameter_min;
+            let diameter = document.createElement('p');
+            diameter.innerText = `Diâmetro estimado: ${minDiameter.toFixed(2)}m - ${maxDiameter.toFixed(2)}m`;
+            diameter.style.fontFamily = 'sansBold';
+
+            let dataAproximação = document.createElement('p');
+            dataAproximação.innerText = `Data de aproximação da Terra: ${asteroid.close_approach_data[0].close_approach_date_full}`;
+
+            let orbita = document.createElement('p');
+            orbita.innerText =  `Está orbitando: ${asteroid.close_approach_data[0].orbiting_body} `;
+
+            
+            col.appendChild(name);
+            col.appendChild(dia);
+            col.appendChild(orbita);
+            col.appendChild(magnitude);
+            col.appendChild(diameter);
+            col.appendChild(dataAproximação);
+            corpo.appendChild(col);
+
+            })
+        }    
+    })
+    
+    
+    .catch(erro =>{
+        console.log(erro);
+    })
+
+    .finally(() =>{
+        console.log('Esse é o nosso sistema solar, incrível não é?');
+    })
+
+    
+
+</script>

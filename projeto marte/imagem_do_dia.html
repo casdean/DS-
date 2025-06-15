@@ -1,66 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Document</title>
 </head>
 <body>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col">
-                
-            </div>
-        </div>
+        <div class="row" id="corpo"></div>
     </div>
-    
         
 
     <script>
-
-
-
     fetch(`https://api.nasa.gov/planetary/apod?api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl`)
         .then(resp => resp.json())
         .then(resp => {
-        resp.forEach(mars => {
-            
-            console.log(mars);
+        
+            console.log(resp);
+            let corpo = document.querySelector('#corpo');
+
             let col = document.createElement('div')
             col.classList.add('col');
             col.style.backgroundColor = 'grey';
-            
-            let imagem = document.createElement('img');
-            imagem.setAttribute('src', `https://api.nasa.gov/planetary/apod?api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl` );
-            imagem.style.width = '300px';
-            imagem.style.height = '400px';
+
+            let title = document.createElement('h1');
+            title.innerText = resp.title;
+            title.style.fontFamily = 'sansBold';
+
+            let midia;  
+            if (resp.media_type === "image") {
+                midia = document.createElement('img');
+                midia.setAttribute('src', resp.url);
+                midia.style.width = '300px';
+                midia.style.height = '400px';
+                
+            } else if (resp.media_type === "video"){
+                midia = document.createElement('iframe');
+                midia.setAttribute('src', resp.url);
+                midia.setAttribute('frameborder', '0');
+                midia.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+                midia.setAttribute('allowfullscreen', '');
+                midia.style.width = '100%';
+                midia.style.height = '400px'; 
+            };
 
             let data = document.createElement('h2');
-            
+            data.innerText = resp.date; 
+
             let explanation = document.createElement('p');
+            explanation.innerText = resp.explanation;
             explanation.style.fontFamily = 'sansBold';
+            explanation.style.color = 'purple';
 
 
-            col.appendChild(imagem);
+            let copyright = document.createElement('p');
+            copyright.innerText = resp.copyright;
+            copyright.style.color = 'purple';
+
+            col.appendChild(title);
+            col.appendChild(midia);
             col.appendChild(data);
             col.appendChild(explanation);
-
-
-                
-            
-
-
-        });
+            col.appendChild(copyright);
+            corpo.appendChild(col);
     })
+    
     
     .catch(erro =>{
         console.log(erro);
     })
 
     .finally(() =>{
-        console.log('Requisição Finalizada!');
+        console.log('Esse é o nosso sistema solar, incrível não é?');
     })
 
     

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row" id="corpo"></div>
+    </div>
+        
+
+    <script>
+    fetch(`https://api.nasa.gov/planetary/apod?count=5&api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl`)
+        .then(resp => resp.json())
+        .then(resp => {
+        
+            console.log(resp);
+            let corpo = document.querySelector('#corpo');
+
+            let col = document.createElement('div')
+            col.classList.add('col');
+            col.style.backgroundColor = 'grey';
+            
+            let imagem = document.createElement('img');
+            imagem.setAttribute('src', resp.url);
+            imagem.style.width = '300px';
+            imagem.style.height = '400px';
+
+            let data = document.createElement('h2');
+            data.innerText = resp.date; 
+
+            let explanation = document.createElement('p');
+            explanation.innerText = resp.explanation;
+            explanation.style.fontFamily = 'sansBold';
+            explanation.style.color = 'purple';
+
+            let title = document.createElement('h1');
+            title.style.fontFamily = 'sansBold'; 
+
+
+            let copyright = document.createElement('p');
+            copyright.innerText = resp.copyright;
+            copyright.style.color = 'purple';
+
+            col.appendChild(title);
+            col.appendChild(imagem);
+            col.appendChild(data);
+            col.appendChild(explanation);
+            corpo.appendChild(col);
+            col.appendChild(copyright);
+    })
+    
+    
+    .catch(erro =>{
+        console.log(erro);
+    })
+
+    .finally(() =>{
+        console.log('Esse é o nosso sistema solar, incrível não é?');
+    })
+
+    
+
+
+            
+    </script>
+
+</body>
+</html>
