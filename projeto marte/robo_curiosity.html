@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row" id="corpo"></div>
+    </div>
+        
+
+    <script>
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl`)
+        .then(resp => resp.json())
+        .then(resp => {
+        
+            console.log(resp);
+            let corpo = document.querySelector('#corpo');
+            let fotos = resp.photos;
+
+            fotos.forEach(object => {
+                
+                let col = document.createElement('div')
+                col.classList.add('col');
+                col.style.backgroundColor = 'grey';
+                col.style.display = 'flex';
+
+
+                let cameraNome  = document.createElement('h2');
+                cameraNome.innerText = `Câmera usada: ${object.camera.name} (${object.camera.full_name})`;
+                cameraNome.style.fontFamily = 'sansBold';
+
+                let imagem = document.createElement('img');
+                imagem.setAttribute('src', object.img_src);
+                imagem.style.width = '300px';
+                imagem.style.height = '300px';
+
+                
+    
+                let data = document.createElement('h3');
+                data.innerText = object.earth_date; 
+    
+                let launch = document.createElement('h3');
+                launch.innerText = `data de lançamento: ${object.rover.launch_date}`;  
+
+                let landing = document.createElement('h3');
+                landing.innerText = `data de aterrisagem: ${object.rover.landing_date}`;
+    
+                let situação = document.createElement('h3');
+                situação.innerText = `status: ${object.rover.status}`;
+                
+    
+                col.appendChild(imagem);
+                col.appendChild(cameraNome);
+                col.appendChild(data);
+                col.appendChild(launch);
+                col.appendChild(landing);
+                col.appendChild(situação);
+                corpo.appendChild(col);
+            });
+
+    })
+    
+    
+    .catch(erro =>{
+        console.log(erro);
+    })
+
+    .finally(() =>{
+        console.log('Esse é o nosso sistema solar, incrível não é?');
+    })
+
+    
+
+
+            
+    </script>
+
+</body>
+</html>

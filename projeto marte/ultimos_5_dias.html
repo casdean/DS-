@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -20,37 +22,47 @@
             console.log(resp);
             let corpo = document.querySelector('#corpo');
 
-            let col = document.createElement('div')
-            col.classList.add('col');
-            col.style.backgroundColor = 'grey';
-            
-            let imagem = document.createElement('img');
-            imagem.setAttribute('src', resp.url);
-            imagem.style.width = '300px';
-            imagem.style.height = '400px';
+            resp.forEach(element => {
+                let col = document.createElement('div')
+                col.classList.add('col-6');
+                col.style.backgroundColor = 'grey';
+                col.style.marginLeft = '10px';
 
-            let data = document.createElement('h2');
-            data.innerText = resp.date; 
+                let parteImg = document.createElement('div');
+                parteImg.classList.add('col-6');
 
-            let explanation = document.createElement('p');
-            explanation.innerText = resp.explanation;
-            explanation.style.fontFamily = 'sansBold';
-            explanation.style.color = 'purple';
+                let imagem = document.createElement('img');
+                imagem.setAttribute('src', element.url);
+                imagem.style.width = '500px';
+                imagem.style.height = '500px';
 
-            let title = document.createElement('h1');
-            title.style.fontFamily = 'sansBold'; 
+                imagem.appendChild(parteImg);
+    
+                let data = document.createElement('h2');
+                data.innerText = element.date; 
+    
+                let explanation = document.createElement('p');
+                explanation.innerText = element.explanation;
+                explanation.style.fontFamily = 'sansBold';
+                explanation.style.color = 'purple';
+    
+                let title = document.createElement('h1');
+                title.innerText = element.title;
+                title.style.fontFamily = 'sansBold'; 
+    
+                let copyright = document.createElement('p');
+                copyright.innerText = element.copyright;
+                copyright.style.color = 'purple';
+    
+                col.appendChild(title);
+                col.appendChild(imagem);
+                col.appendChild(data);
+                col.appendChild(explanation);
+                col.appendChild(copyright);
+                corpo.appendChild(col);
+                
+            });
 
-
-            let copyright = document.createElement('p');
-            copyright.innerText = resp.copyright;
-            copyright.style.color = 'purple';
-
-            col.appendChild(title);
-            col.appendChild(imagem);
-            col.appendChild(data);
-            col.appendChild(explanation);
-            corpo.appendChild(col);
-            col.appendChild(copyright);
     })
     
     
@@ -65,8 +77,8 @@
     
 
 
-            
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js" integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous"></script>     
 
 </body>
 </html>

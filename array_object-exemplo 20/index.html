@@ -26,8 +26,8 @@
                 valor_a_vista: '20 mil',
                 marca: 'Fiat',
                 fotos: [
-                    'https://br.pinterest.com/pin/21744010694451681/',
-                    'https://br.pinterest.com/pin/6051780741441713/',
+                    'https://i.pinimg.com/736x/62/95/cb/6295cb46909574586d743bd0c52d5bb4.jpg',
+                    'https://i.pinimg.com/736x/da/84/cb/da84cb5545e53685e10e05a02c04b4fe.jpg',
                 ]
             },
             {
@@ -40,8 +40,8 @@
                 valor_a_vista: '2 milhões',
                 marca: 'Volkswagen',
                 fotos: [
-                    'https://br.pinterest.com/pin/2533343525608727/',
-                    'https://br.pinterest.com/pin/138345019797385618/',
+                    'https://i.pinimg.com/736x/2c/4c/c8/2c4cc8ad3741ac5657698366b1138dd0.jpg',
+                    'https://i.pinimg.com/736x/f2/72/17/f27217f68cffeac451ee7991a6c69ccb.jpg',
                 ]
             },
             {
@@ -54,8 +54,8 @@
                 valor_a_vista: '70 mil',
                 marca: 'toyota',
                 fotos: [
-                    'https://br.pinterest.com/pin/626352260711635288/',
-                    'https://br.pinterest.com/pin/320459329750298952/',
+                    'https://i.pinimg.com/736x/94/24/94/94249451c2127f7974654a6dc682dde7.jpg',
+                    'https://i.pinimg.com/736x/1e/9e/6a/1e9e6ac143c19471e2bd75b3e1a48ee1.jpg',
                 ]
             }
         ];
@@ -77,10 +77,10 @@
             let card = document.createElement('div');
             card.classList.add('card');
 
-            veiculo.fotos.forEach(foto =>{
+            veiculo.fotos.forEach(foto=>{
                 let imagem = document.createElement('img');
                 imagem.setAttribute('src', foto);
-                card.appendChild(imagem)
+                card.appendChild(imagem);
             })
 
 
@@ -90,7 +90,6 @@
 
             card.appendChild(modelo);
             card.appendChild(combustivel);
-            card.appendChild(foto);
             card.appendChild(anoSurgimento);
             col.appendChild(card);
             concessionária.appendChild(col);

@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="
+  background-color: #1B365C;
+  ">
+    <div class="container-fluid" >
+    <div class="row" id="corpo"></div>
+</div>
 
-    <div class="container-fluid">
-        <div class="row" id="corpo"></div>
-    </div>
         
 
     <script>
@@ -22,18 +27,24 @@
 
             let col = document.createElement('div')
             col.classList.add('col');
-            col.style.backgroundColor = 'grey';
+            col.style.display = 'flex';
+            col.style.justifyContent = 'center';
+            col.style.alignItems = 'center';
+            col.style.flexDirection = 'column';
 
             let title = document.createElement('h1');
             title.innerText = resp.title;
-            title.style.fontFamily = 'sansBold';
+            title.style.fontFamily = '"Tiny5", sans-serif';
+            title.style.color = '#BF2C1F';
+            title.style.textAlign = 'center';
 
             let midia;  
             if (resp.media_type === "image") {
                 midia = document.createElement('img');
                 midia.setAttribute('src', resp.url);
-                midia.style.width = '300px';
-                midia.style.height = '400px';
+                midia.style.width = '50%';
+                midia.style.maxHeight = '500px';
+                               
                 
             } else if (resp.media_type === "video"){
                 midia = document.createElement('iframe');
@@ -41,27 +52,37 @@
                 midia.setAttribute('frameborder', '0');
                 midia.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
                 midia.setAttribute('allowfullscreen', '');
-                midia.style.width = '100%';
-                midia.style.height = '400px'; 
+                midia.style.width = '50%';
+                midia.style.maxHeight = '500px'; 
             };
 
             let data = document.createElement('h2');
             data.innerText = resp.date; 
+            data.style.fontFamily = '"Tiny5", sans-serif';
+            data.style.color = '#EBF2F2';
 
             let explanation = document.createElement('p');
             explanation.innerText = resp.explanation;
-            explanation.style.fontFamily = 'sansBold';
-            explanation.style.color = 'purple';
+            explanation.style.fontFamily = "Lexend Deca", 'sans-serif';
+            explanation.style.fontOpticalSizing = 'auto';
+            explanation.style.fontWeight= "<weight>";
+            explanation.style.fontStyle = 'normal';
+            explanation.style.textAlign = 'center';
+            explanation.style.margin ='20px';
+            explanation.style.color = '#8DBFE3';
+            explanation.style.padding = '10px'
 
 
             let copyright = document.createElement('p');
             copyright.innerText = resp.copyright;
-            copyright.style.color = 'purple';
+            copyright.style.color = '#888';
+            copyright.style.marginRight ='37%';
+            
 
             col.appendChild(title);
-            col.appendChild(midia);
             col.appendChild(data);
             col.appendChild(explanation);
+            col.appendChild(midia);
             col.appendChild(copyright);
             corpo.appendChild(col);
     })

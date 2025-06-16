@@ -1,5 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="corpo"></div>
+    </div>
+</body>
+</html>
+
 <script>
+    fetch(`https://api.nasa.gov/EPIC/api/natural?api_key=b3CedZ8B4XD23yTyqVbzyfz2ZuRhz0S7KZyB4dNl`)
+        .then(resp => resp.json())
+        .then(resp => {
+            console.log(resp);
+            let corpo = document.querySelector('#corpo');
+            
+            resp.forEach(element => {
+                
+                let col = document.createElement('div');
+                col.classList.add('col');
+                col.style.backgroundColor = 'grey';
+                col.style.marginBottom = '20px';
+                col.style.textAlign = 'center';
+                col.style.padding = '10px';
 
-   
+                let iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.google.com/maps?q=${element.centroid_coordinates.lat},${element.centroid_coordinates.lon}&z=6&output=embed`);
+                iframe.style.width = '400px';
+                iframe.style.height = '400px';
+                iframe.style.border = '0';
+                iframe.style.marginBottom = '10px';
 
+                // let [year, month, day] = element.date.split('-'); 
+
+                // let imageUrl = `https://epic.gsfc.nasa.gov/archive/natural/${year}/${month}/${day}/png/${element.identifier}.png`;
+
+                // let image = document.createElement('img');
+                // image.setAttribute('src', imageUrl);
+                // image.style.width = '100%'; 
+                // image.style.maxWidth = '400px'; 
+                // image.style.height = 'auto';
+                // image.style.marginBottom = '10px';
+
+                col.appendChild(iframe);
+                // col.appendChild(image);
+                corpo.appendChild(col);
+            });
+
+        })
+        .catch(erro => {
+            console.log(erro);
+        })
+        .finally(() => {
+            console.log('Esse é o nosso sistema solar, incrível não é?');
+        });
 </script>
