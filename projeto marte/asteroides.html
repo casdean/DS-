@@ -60,8 +60,8 @@
 
             let dia = document.createElement('h3');
             dia.innerText = `Data: ${date} `;
-            name.style.fontFamily = '"Tiny5", sans-serif';
-            name.style.color = '#8DBFE3'; 
+            dia.style.fontFamily = '"Tiny5", sans-serif';
+            dia.style.color = '#8DBFE3'; 
 
             let name = document.createElement('h2');
             name.innerText = asteroid.name;
@@ -80,8 +80,8 @@
 
             let dataAproximação = document.createElement('p');
             dataAproximação.innerText = `Data de aproximação da Terra: ${asteroid.close_approach_data[0].close_approach_date_full}`;
-            name.style.fontFamily = '"Tiny5", sans-serif';
-            name.style.color = '#8DBFE3';
+            dataAproximação.style.fontFamily = '"Tiny5", sans-serif';
+            dataAproximação.style.color = '#8DBFE3';
 
             let orbita = document.createElement('p');
             orbita.innerText =  `Está orbitando: ${asteroid.close_approach_data[0].orbiting_body} `;
