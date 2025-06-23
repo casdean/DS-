@@ -51,47 +51,51 @@
 
             resp.forEach(element => {
                 let col = document.createElement('div')
-                col.classList.add('col-6');
+                col.classList.add('col');
                 col.style.marginLeft = '10px';
+                col.style.marginBottom = '10px';
                 col.style.display = 'flex';
                 col.style.justifyContent = 'center';
                 col.style.alignItems = 'center';
                 col.style.flexDirection = 'column';
-
+               
                 let parteImg = document.createElement('div');
-                parteImg.classList.add('col-6');
 
                 let imagem = document.createElement('img');
                 imagem.setAttribute('src', element.url);
                 imagem.style.width = '500px';
                 imagem.style.height = '500px';
-
                 parteImg.appendChild(imagem);
     
                 let data = document.createElement('h2');
                 data.innerText = element.date; 
-                data.style.textAlign = 'center';
+                data.style.fontFamily = 'Tiny5, sans-serif';
+                data.style.color = '#EBF2F2';
 
     
                 let explanation = document.createElement('p');
                 explanation.innerText = element.explanation;
-                explanation.style.fontFamily = 'sansBold';
-                explanation.style.color = 'purple';
+                explanation.style.fontFamily = "Lexend Deca", 'sans-serif';
+                explanation.style.fontOpticalSizing = 'auto';
+                explanation.style.fontWeight= "<weight>";
+                explanation.style.fontStyle = 'normal';
                 explanation.style.textAlign = 'center';
-
+                explanation.style.margin ='20px';
+                explanation.style.color = '#8DBFE3';
+                explanation.style.padding = '10px'
     
                 let title = document.createElement('h1');
                 title.innerText = element.title;
-                title.style.fontFamily = 'sansBold'; 
+                title.style.fontFamily = '"Tiny5", sans-serif';
+                title.style.color = '#BF2C1F';
                 title.style.textAlign = 'center';
 
     
                 let copyright = document.createElement('p');
                 copyright.innerText = element.copyright;
-                copyright.style.color = 'purple';
-                title.style.textAlign = 'center';
+                copyright.style.color = '#888';
+                copyright.style.marginRight ='37%';
 
-    
                 col.appendChild(title);
                 col.appendChild(imagem);
                 col.appendChild(data);

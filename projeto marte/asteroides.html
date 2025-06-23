@@ -55,13 +55,19 @@
                 nearEarthObjects[date].forEach(asteroid => {
 
             let col = document.createElement('div');
-            col.classList.add('col');
-            col.style.backgroundColor = 'grey';
+            col.classList.add('col-6');
+            col.style.display = 'flex';
+            col.style.marginBottom = '20px';
+            col.style.justifyContent = "space-between";
+            col.style.alignItems = 'center';
+            col.style.flexDirection = 'column';
+            col.style.backgroundColor = '#A6A6A6'
+            col.style.borderRadius = '50px';
 
             let dia = document.createElement('h3');
             dia.innerText = `Data: ${date} `;
-            dia.style.fontFamily = '"Tiny5", sans-serif';
-            dia.style.color = '#8DBFE3'; 
+            dia.style.fontFamily = 'Tiny5, sans-serif';
+            dia.style.color = '#1B365C'; 
 
             let name = document.createElement('h2');
             name.innerText = asteroid.name;
@@ -70,7 +76,7 @@
             
             let magnitude = document.createElement('p');
             magnitude.innerText = `Magnitude: ${asteroid.absolute_magnitude_h}`; 
-            magnitude.style.color = '#8DBFE3';
+            magnitude.style.color = '#1B365C';
 
             let maxDiameter = asteroid.estimated_diameter.meters.estimated_diameter_max;
             let minDiameter = asteroid.estimated_diameter.meters.estimated_diameter_min;
@@ -81,7 +87,7 @@
             let dataAproximação = document.createElement('p');
             dataAproximação.innerText = `Data de aproximação da Terra: ${asteroid.close_approach_data[0].close_approach_date_full}`;
             dataAproximação.style.fontFamily = '"Tiny5", sans-serif';
-            dataAproximação.style.color = '#8DBFE3';
+            dataAproximação.style.color = '#1B365C';
 
             let orbita = document.createElement('p');
             orbita.innerText =  `Está orbitando: ${asteroid.close_approach_data[0].orbiting_body} `;
